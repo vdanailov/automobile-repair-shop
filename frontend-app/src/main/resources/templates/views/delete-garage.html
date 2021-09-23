@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/main_layout}">
+
+<head>
+<title>Delete garage</title>
+</head>
+
+<body>
+	<div layout:fragment="content" class="container mySpace">
+		
+		<h1 class="mb-4">Garages</h1>
+            <table class="table table-hover text-center">
+            	<th>No</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Brands</th>
+                <th>Action</th>
+                <tr th:each="garage : ${garages}">
+                	<td class="align-middle" th:text="${garage.getId()}"></td>
+                    <td class="align-middle" th:text="${garage.getName()}"></td>
+                    <td class="align-middle" th:text="${garage.getAddress()}"></td>
+                    <td class="align-middle" th:text="${garage.getBrands()}"></td>
+                    <td class="align-middle"> <a class="btn btn-danger" th:href="@{'/delete-garage/'+${garage.id}}">Delete</a> </td>
+                </tr>
+            </table>
+         
+	
+	
+	
+	
+	
+	
+	
+	
+	</div>
+</body>
+
+</html>

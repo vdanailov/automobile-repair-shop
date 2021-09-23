@@ -1,0 +1,53 @@
+<header th:fragment="header">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/">Garage 101</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item" sec:authorize="!isAuthenticated()">
+        <a class="nav-link" href="/register">Register</a>
+      </li>
+      <li class="nav-item" sec:authorize="!isAuthenticated()">
+        <a class="nav-link" href="/login">Log in</a>
+      </li>
+     
+      <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+        <a class="nav-link" href="/add-garage">Add garage</a>
+      </li>
+      <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+        <a class="nav-link" href="/add-worker">Add worker</a>
+      </li>
+      <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+        <a class="nav-link" href="/delete-garage">Delete garage</a>
+      </li>
+      <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+        <a class="nav-link" href="/delete-worker">Delete worker</a>
+      </li>
+      <li class="nav-item" sec:authorize="hasRole('ROLE_WORKER')">
+        <a class="nav-link" href="/resolve-appointments">Unresolved Appointments</a>
+      </li>
+      <li class="nav-item" sec:authorize="hasRole('ROLE_WORKER')">
+        <a class="nav-link" href="/resolved-appointments">Resolved appointments</a>
+      </li>
+      <li class="nav-item" sec:authorize="hasRole('ROLE_USER')">
+        <a class="nav-link" href="/add-appointment">Add appointment</a>
+      </li>
+      <li class="nav-item" sec:authorize="hasRole('ROLE_USER')">
+        <a class="nav-link" href="/all-appointments">All appointments</a>
+      </li>
+    </ul>
+    <a class="btn btn-secondary" href="/logout" sec:authorize="isAuthenticated()">Logout</a>
+  
+  </div>
+</nav>
+
+
+</header>
+

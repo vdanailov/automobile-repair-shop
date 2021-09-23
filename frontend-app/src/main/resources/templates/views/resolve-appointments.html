@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/main_layout}">
+
+<head>
+<title>Resolve appointments</title>
+</head>
+
+<body>
+	<div layout:fragment="content" class="container mySpace">
+		
+		<h1 class="mb-4">Appointments</h1>
+            <table class="table table-hover text-center">
+            	<th>Date and Time</th>
+            	<th>Client</th>
+            	<th>Brand</th>
+                <th>Model</th>
+               <th>Year</th>
+                <th>Reg. N</th>
+                <th>Problem</th>
+                <th>Price</th>
+                <th>Action</th>
+                <tr th:each="appointment : ${appointments}">
+                <form name="f" th:action="@{/resolve-appointments}" method="post">
+                <td class="align-middle" th:text="${appointment.dateTime}"></td>
+                	<td class="align-middle" th:text="${appointment.client}"></td>
+                	<td class="align-middle" th:text="${appointment.brand}"></td>
+                    <td class="align-middle" th:text="${appointment.model}"></td>
+                    <td class="align-middle" th:text="${appointment.year}"></td>
+                    <td class="align-middle" th:text="${appointment.number}"></td>
+                    <td class="align-middle" th:text="${appointment.problem}"></td>
+                    <td class="align-middle"><div class="form-group"><input type="text" class="form-control text-center" name="price"></div></td>
+                    <input type="hidden" th:value="${appointment.id}" name="id">
+                    <td class="align-middle"> <input type="submit" value="Resolve" class="btn btn-success"></td>
+                </form>
+                </tr>
+            </table>
+       
+	
+	</div>
+</body>
+
+</html>

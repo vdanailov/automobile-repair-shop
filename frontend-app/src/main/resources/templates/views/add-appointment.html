@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/main_layout}">
+
+<head>
+<title>Add appointment</title>
+</head>
+
+<body>
+	<div layout:fragment="content" class="container mySpace">
+		<div class="jumbotron">
+			<form name="f" th:action="@{/add-appointment}" method="post">
+				<div class="form-group">
+				  <label for="datetime" class="form-control-label">Date and time</label>
+				   <input class="form-control" type="datetime-local"  id="datetime" name="datetime">
+				  </div>
+
+			 <div class="form-group">
+			 <label for="custom-select">Garage:</label>
+			    <select id="garage" name="garage" class="custom-select">
+			    <option th:each="garage : ${garages}" th:value="${garage.id}" th:text="${garage.name}+'  |  Brands: ' +${garage.brands} +'  | Address: ' +${garage.address}"></option>
+			    </select>
+			  </div>
+				<div class="form-group">
+					<label for="brand" class="form-control-label">Car Brand:</label>
+					<input type="text" class="form-control" id="brand" name="brand"/>
+				</div>
+				<div class="form-group">
+					<label for="model" class="form-control-label">Car Model:</label>
+					<input type="text" class="form-control" id="model" name="model"/>
+				</div>
+				<div class="form-group">
+					<label for="year" class="form-control-label">Year of manufacture:</label>
+					<input type="text" class="form-control" id="year" name="year"/>
+				</div>
+				<div class="form-group">
+					<label for="number" class="form-control-label">Reg. Number:</label>
+					<input type="text" class="form-control" id="number" name="number"/>
+				</div>
+				<div class="form-group">
+					<label for="problem" class="form-control-label">Problem:</label>
+					<input type="text" class="form-control" id="problem" name="problem"/>
+				</div>
+				<input type="submit" value="Add appointment" class="btn btn-primary btn-block">
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

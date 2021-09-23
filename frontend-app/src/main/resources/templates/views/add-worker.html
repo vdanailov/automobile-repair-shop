@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/main_layout}">
+
+<head>
+<title>Add worker</title>
+</head>
+
+<body>
+	<div layout:fragment="content" class="container mySpace">
+		<div class="jumbotron">
+			<form name="f" th:action="@{/add-worker}" method="post">
+			<div class="form-group">
+					<label for="username" class="form-control-label">Worker name:</label>
+					<input type="text" class="form-control" id="name" name="name"/>
+				</div>
+				<div class="form-group">
+					<label for="username" class="form-control-label">Worker username:</label>
+					<input type="text" class="form-control" id="username" name="username"/>
+				</div>
+				<div class="form-group">
+					<label for="password" class="form-control-label">Worker password:</label>
+					<input type="password" class="form-control" id="password" name="password"/>
+				</div>
+				<div class="form-group">
+			 <label for="custom-select">Garage:</label>
+			    <select id="garage" name="garage" class="custom-select">
+			    <option th:each="garage : ${garages}" th:value="${garage.id}" th:text="${garage.name}+'  |  Brands: ' +${garage.brands} +'  | Address: ' +${garage.address}"></option>
+			    </select>
+			  </div>
+				
+				<input type="submit" value="Add worker" class="btn btn-primary btn-block">
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

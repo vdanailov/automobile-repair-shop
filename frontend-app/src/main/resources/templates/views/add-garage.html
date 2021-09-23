@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout" layout:decorate="~{fragments/main_layout}">
+
+<head>
+<title>Add garage</title>
+</head>
+
+<body>
+	<div layout:fragment="content" class="container mySpace">
+		<div class="jumbotron">
+			<form name="f" th:action="@{/add-garage}" method="post">
+				<div class="form-group">
+					<label for="name" class="form-control-label">Garage name</label>
+					<input type="text" class="form-control" id="name" name="name"/>
+				</div>
+				<div class="form-group">
+					<label for="address" class="form-control-label">Garage address</label>
+					<input type="text" class="form-control" id="address" name="address"/>
+				</div>
+				<div class="form-group">
+					<label for="brand" class="form-control-label">Brands</label>
+					<input type="text" class="form-control" id="brand" name="brand"/>
+				</div>
+				
+				<input type="submit" value="Add garage" class="btn btn-primary btn-block">
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>
